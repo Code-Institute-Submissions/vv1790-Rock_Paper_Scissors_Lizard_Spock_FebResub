@@ -12,3 +12,9 @@ body {
     font-family: 'Lato', sans-serif;
     font-family: 'Oswald', sans-serif;
 }
+
+canvas{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
