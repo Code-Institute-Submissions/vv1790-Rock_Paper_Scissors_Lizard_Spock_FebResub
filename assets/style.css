@@ -12,7 +12,17 @@ body {
 
 canvas{
     display: flex;
+    margin-top: 20vh;
     justify-content: center;
     flex-direction: row;
+    border-radius: 50vh;
+    height: 320px;
+    width: 320px;
+    border: 2px solid black;
+}
+
+button{
+    border-radius: 50vh;
+    padding: 1vh 1vh 1vh 1vh;
 }
 
