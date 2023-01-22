@@ -51,3 +51,49 @@ function checkWinner(){
         return "It's a draw!"
     }
 }
+
+function play(player, computer) {
+    if (
+        (player === "rock" && computer === "scissors") ||
+        (player === "rock" && computer === "lizard") ||
+        (player === "paper" && computer === "rock") ||
+        (player === "paper" && computer === "spock") ||
+        (player === "scissors" && computer === "paper") ||
+        (player === "scissors" && computer === "lizard") ||
+        (player === "lizard" && computer === "paper") ||
+        (player === "lizard" && computer === "spock") ||
+        (player === "spock" && computer === "scissors") ||
+        (player === "spock" && computer === "rock")
+
+    ) {
+        playerScore = playerScore + 1
+        console.log(`Player wins round ${round}.`)
+    } else if (
+        (player === "scissors" && computer === "rock") ||
+        (player === "lizard" && computer === "rock") ||
+        (player === "rock" && computer === "paper") ||
+        (player === "spock" && computer === "paper") ||
+        (player === "paper" && computer === "scissors") ||
+        (player === "lizard" && computer === "scissors") ||
+        (player === "scissors" && computer === "lizard") ||
+        (player === "rock" && computer === "lizard") ||
+        (player === "paper" && computer === "spock") ||
+        (player === "lizard" && computer === "spock")
+    ) {
+        computerScore = computerScore + 1
+        console.log(`Computer wins round ${round}.`)
+    } else {
+        console.log(`Round ${round} is a draw.`)
+    }
+}
+
+function terminateGame() {
+    const player = playerTurn()
+    if (player !== null) {
+        playerTurn()
+        return
+    }
+    console.log("Terminated")
+    gameState()
+    return
+}
