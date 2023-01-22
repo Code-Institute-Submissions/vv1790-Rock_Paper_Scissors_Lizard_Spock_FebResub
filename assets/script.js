@@ -39,4 +39,15 @@ function gameState() {
     round = 1 
 }
 
-function
+function checkWinner(){
+    if (playerScore > computerScore){
+        gameState()
+        return "Player wins"
+    } else if (computerScore > playerScore){
+        gameState()
+        return "Computer wins"
+    } else {
+        gameState()
+        return "It's a draw!"
+    }
+}
