@@ -1,99 +1,68 @@
-let round = 1
+const displayPlayerChoice = document.getElementById('player_choice')
+const displayComputerChoice = document.getElementById('computer_choice')
+const displayPlayerScore = document.getElementById('player_score')
+const displayComputerScore = document.getElementById('computer_score')
+const choiceRange = document.querySelectorAll('button')
+
+let playerChoice
+let computerChoice
 let playerScore = 0
 let computerScore = 0
-let computerChoice
 
-const choices = ["rock", "paper", "scissors", "lizard", "spock"]
+
+const choices = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+
+choiceRange.forEach(choiceRange => choiceRange.addEventListener('click', (e) => {
+    playerChoice = e.target.id
+    displayPlayerChoice.innerHTML = playerChoice
+    displayComputerChoice.innerHTML = computerPlay()
+    displayPlayerScore.innerHTML = playerScore
+    displayComputerScore.innerHTML = computerScore
+    getResult()
+    gameState()
+}))
 
 function computerPlay() {
     return choices[Math.floor(Math.random() * 5) + 1]
 }
 
-function playerTurn(){
-    if (!player) return null
-}
-
-function rockFunction() {
-    console.log("rock")
-}
-
-function paperFunction() {
-    console.log('paper')
-}
-
-function scissorsFunction() {
-    console.log('scissors')
-}
-
-function lizardFunction() {
-    console.log('lizard')
-}
-
-function spockFunction() {
-    console.log('spock')
-}
-
 function gameState() {
     playerScore = 0
     computerScore = 0
-    round = 1 
 }
 
-function checkWinner(){
-    if (playerScore > computerScore){
-        gameState()
-        return "Player wins"
-    } else if (computerScore > playerScore){
-        gameState()
-        return "Computer wins"
-    } else {
-        gameState()
-        return "It's a draw!"
-    }
-}
-
-function play(player, computer) {
+function getResult() {
     if (
-        (player === "rock" && computer === "scissors") ||
-        (player === "rock" && computer === "lizard") ||
-        (player === "paper" && computer === "rock") ||
-        (player === "paper" && computer === "spock") ||
-        (player === "scissors" && computer === "paper") ||
-        (player === "scissors" && computer === "lizard") ||
-        (player === "lizard" && computer === "paper") ||
-        (player === "lizard" && computer === "spock") ||
-        (player === "spock" && computer === "scissors") ||
-        (player === "spock" && computer === "rock")
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "rock" && computerChoice === "lizard") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "paper" && computerChoice === "spock") ||
+        (playerChoice === "scissors" && computerChoice === "paper") ||
+        (playerChoice === "scissors" && computerChoice === "lizard") ||
+        (playerChoice === "lizard" && computerChoice === "paper") ||
+        (playerChoice === "lizard" && computerChoice === "spock") ||
+        (playerChoice === "spock" && computerChoice === "scissors") ||
+        (playerChoice === "spock" && computerChoice === "rock")
 
     ) {
         playerScore = playerScore + 1
-        console.log(`Player wins round ${round}.`)
     } else if (
-        (player === "scissors" && computer === "rock") ||
-        (player === "lizard" && computer === "rock") ||
-        (player === "rock" && computer === "paper") ||
-        (player === "spock" && computer === "paper") ||
-        (player === "paper" && computer === "scissors") ||
-        (player === "lizard" && computer === "scissors") ||
-        (player === "scissors" && computer === "lizard") ||
-        (player === "rock" && computer === "lizard") ||
-        (player === "paper" && computer === "spock") ||
-        (player === "lizard" && computer === "spock")
+        (playerChoice === "scissors" && computerChoice === "rock") ||
+        (playerChoice === "lizard" && computerChoice === "rock") ||
+        (playerChoice === "rock" && computerChoice === "paper") ||
+        (playerChoice === "spock" && computerChoice === "paper") ||
+        (playerChoice === "paper" && computerChoice === "scissors") ||
+        (playerChoice === "lizard" && computerChoice === "scissors") ||
+        (playerChoice === "scissors" && computerChoice === "lizard") ||
+        (playerChoice === "rock" && computerChoice === "lizard") ||
+        (playerChoice === "paper" && computerChoice === "spock") ||
+        (playerChoice === "lizard" && computerChoice === "spock")
     ) {
         computerScore = computerScore + 1
-        console.log(`Computer wins round ${round}.`)
     } else {
-        console.log(`Round ${round} is a draw.`)
+        
     }
+
 }
 
-function terminateGame() {
-    const player = playerTurn()
-    if (player !== null) {
-        playerTurn()
-        return
-    }
-    console.log("Terminated")
-    gameState()
-    return
-}
+
