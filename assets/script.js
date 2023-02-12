@@ -1,23 +1,77 @@
-// const btn  = document.querySelector('button')
-const rockBtn = document.querySelector('.rock')
-const paperBtn = document.querySelector('.paper')
-const scissorsBtn = document.querySelector('.scissors')
-const lizardBtn = document.querySelector('.lizard')
-const spockBtn = document.querySelector('.spock')
+const display = {
+  playerChoice: document.getElementById('player_choice'),
+  computerChoice: document.getElementById('computer_choice'),
+  result: document.getElementById('show_result'),
+  playerScore: document.getElementById('player_score'),
+  computerScore: document.getElementById('computer_score')
+};
 
-const displayPlayerChoice = document.getElementById('player_choice')
-const displayComputerChoice = document.getElementById('computer_choice')
+const choices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
-const computerChoices = ['rock', 'paper' , 'scissors', 'lizard', 'spock']
-const playerChoices = [rockBtn, paperBtn, scissorsBtn, lizardBtn, spockBtn]
+const buttons = {
+  rock: document.querySelector('.rock'),
+  paper: document.querySelector('.paper'),
+  scissors: document.querySelector('.scissors'),
+  lizard: document.querySelector('.lizard'),
+  spock: document.querySelector('.spock')
+};
 
+let playerChoice;
+let computerChoice;
+let playerScore = 0;
+let computerScore = 0;
 
-rockBtn.addEventListener("click", changeColor);
-      function changeColor() {
-        displayPlayerChoice.innerHTML = playerChoices
+function computerPlay() {
+  computerChoice = choices[Math.floor(Math.random() * 5)];
+  computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+  display.computerChoice.innerHTML = computerChoice;
 }
 
-paperBtn.addEventListener("click", changeColor);
-      function changeColor() {
-        displayPlayerChoice.innerHTML = 'paper'
+for (const [key, button] of Object.entries(buttons)) {
+  button.addEventListener('click', () => {
+    playerChoice = key;
+    playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1);
+    display.playerChoice.innerHTML = playerChoice;
+    computerPlay();
+    getResult();
+  });
 }
+
+const wins = [
+  'scissorspaper',
+  'scissorslizard',
+  'rockscissors',
+  'rocklizard',
+  'paperrock',
+  'paperspock'
+];
+
+const loses = [
+  'paperscissors',
+  'paperspock',
+  'scissorsrock',
+  'scissorslizard',
+  'rockpaper',
+  'rocklizard'
+];
+
+const getResult = () => {
+  const combinedChoices = playerChoice + computerChoice;
+  if (wins.includes(combinedChoices)) {
+    display.playerChoice.innerHTML = 'Player: ' + playerChoice;
+    display.computerChoice.innerHTML = 'Computer: ' + computerChoice
+    display.result.innerHTML = 'YOU WIN!';
+    playerScore++;
+    display.playerScore.innerHTML = `Player Score: ${playerScore}`;
+  } else if (loses.includes(combinedChoices)) {
+    display.playerChoice.innerHTML = 'Player: ' + playerChoice;
+    display.computerChoice.innerHTML = 'Computer: ' + computerChoice;
+    display.result.innerHTML = 'YOU LOSE!';
+    computerScore++;
+    display.computerScore.innerHTML = `Computer Score: ${computerScore}`;
+  } else {
+    display.playerChoice.innerHTML = 'Player: ' + playerChoice;
+    display.computerChoice.innerHTML = 'Computer: ' + computerChoice;
+    display.result.innerHTML = "IT'S A DRAW!";
+  }
+};
