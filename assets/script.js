@@ -22,56 +22,49 @@ let playerScore = 0;
 let computerScore = 0;
 
 function computerPlay() {
-  computerChoice = choices[Math.floor(Math.random() * 5)];
+  computerChoice = choices[Math.floor(Math.random() * choices.length)];
   computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
-  display.computerChoice.innerHTML = computerChoice;
+  display.computerChoice.innerHTML = `Computer: ${computerChoice}`;
 }
 
 for (const [key, button] of Object.entries(buttons)) {
   button.addEventListener('click', () => {
-    playerChoice = key;
-    playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1);
-    display.playerChoice.innerHTML = playerChoice;
+    playerChoice = key.charAt(0).toUpperCase() + key.slice(1);
+    display.playerChoice.innerHTML = `Player: ${playerChoice}`;
     computerPlay();
     getResult();
   });
 }
 
 const wins = [
-  'scissorspaper',
-  'scissorslizard',
-  'rockscissors',
-  'rocklizard',
-  'paperrock',
-  'paperspock'
+  'ScissorsPaper',
+  'ScissorsLizard',
+  'RockScissors',
+  'RockLizard',
+  'PaperRock',
+  'PaperSpock'
 ];
 
 const loses = [
-  'paperscissors',
-  'paperspock',
-  'scissorsrock',
-  'scissorslizard',
-  'rockpaper',
-  'rocklizard'
+  'PaperScissors',
+  'PaperSpock',
+  'ScissorsRock',
+  'ScissorsLizard',
+  'RockPaper',
+  'RockLizard'
 ];
 
 const getResult = () => {
-  const combinedChoices = playerChoice + computerChoice;
+  const combinedChoices = `${playerChoice}${computerChoice}`;
   if (wins.includes(combinedChoices)) {
-    display.playerChoice.innerHTML = 'Player: ' + playerChoice;
-    display.computerChoice.innerHTML = 'Computer: ' + computerChoice
-    display.result.innerHTML = 'YOU WIN!';
+    display.result.innerHTML = 'Result: You Win!';
     playerScore++;
     display.playerScore.innerHTML = `Player Score: ${playerScore}`;
   } else if (loses.includes(combinedChoices)) {
-    display.playerChoice.innerHTML = 'Player: ' + playerChoice;
-    display.computerChoice.innerHTML = 'Computer: ' + computerChoice;
-    display.result.innerHTML = 'YOU LOSE!';
+    display.result.innerHTML = 'Result: You Lose!';
     computerScore++;
     display.computerScore.innerHTML = `Computer Score: ${computerScore}`;
   } else {
-    display.playerChoice.innerHTML = 'Player: ' + playerChoice;
-    display.computerChoice.innerHTML = 'Computer: ' + computerChoice;
-    display.result.innerHTML = "IT'S A DRAW!";
+    display.result.innerHTML = "Result: It's a Tie!";
   }
 };
