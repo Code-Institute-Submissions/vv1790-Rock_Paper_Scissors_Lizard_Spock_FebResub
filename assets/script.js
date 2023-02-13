@@ -3,7 +3,8 @@ const display = {
   computerChoice: document.getElementById('computer_choice'),
   result: document.getElementById('show_result'),
   playerScore: document.getElementById('player_score'),
-  computerScore: document.getElementById('computer_score')
+  computerScore: document.getElementById('computer_score'),
+  gameTitle: document.getElementById('title')
 };
 
 const choices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
@@ -68,3 +69,40 @@ const getResult = () => {
     display.result.innerHTML = "Result: It's a Tie!";
   }
 };
+
+var myDate = new Date();
+var hrs = myDate.getHours();
+
+var greet;
+
+if (hrs >= 0 && hrs < 12) {
+    greet = 'Good Morning';
+} else if (hrs >= 12 && hrs <= 17) {
+    greet = 'Good Afternoon';
+} else if (hrs >= 17 && hrs <= 24) {
+    greet = 'Good Evening';
+} else {
+    greet = 'Invalid time';
+}
+
+var gameTitle = 'Rock, Paper, Scissors, Lizard, Spock';
+
+const startButton = document.getElementById("start_button");
+startButton.addEventListener("click", startGame);
+
+function startGame() {
+  display.playerChoice.innerHTML = "Player: ";
+  display.computerChoice.innerHTML = "Computer: ";
+  display.result.innerHTML = "Result: ";
+  playerScore = 0;
+  computerScore = 0;
+  display.playerScore.innerHTML = `Player Score: ${playerScore}`;
+  display.computerScore.innerHTML = `Computer Score: ${computerScore}`;
+}
+
+document.getElementById('lblGreetings')
+    ? document.getElementById('lblGreetings').innerHTML = `<b>${greet}</b> and welcome to ${gameTitle}!`
+    : console.error('Element with id "lblGreetings" not found');
+  
+
+
