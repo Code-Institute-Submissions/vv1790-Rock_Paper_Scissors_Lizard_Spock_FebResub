@@ -26,3 +26,9 @@ button{
     padding: 1vh 1vh 1vh 1vh;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+    padding: 20vh 20vh 20vh 20vh;
+}
+
