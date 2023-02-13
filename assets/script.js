@@ -1,13 +1,19 @@
-const display = {
+display = {
   playerChoice: document.getElementById('player_choice'),
   computerChoice: document.getElementById('computer_choice'),
   result: document.getElementById('show_result'),
   playerScore: document.getElementById('player_score'),
   computerScore: document.getElementById('computer_score'),
-  gameTitle: document.getElementById('title')
+  gameTitle: document.getElementById('title'),
+  startButton: document.getElementById('start_button'),
+  gameOverBtn: document.getElementById('game_over')
 };
 
 const choices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+
+let gameOver = false;
+let round = 1;
+const maxRounds = 5;
 
 const buttons = {
   rock: document.querySelector('.rock'),
@@ -87,8 +93,11 @@ if (hrs >= 0 && hrs < 12) {
 
 var gameTitle = 'Rock, Paper, Scissors, Lizard, Spock';
 
-const startButton = document.getElementById("start_button");
-startButton.addEventListener("click", startGame);
+const startButton = document.getElementById("start_screen");
+display.startButton.addEventListener('click', () => {
+  display.startButton.style.display = 'none';
+  document.getElementById("start_screen").style.display = "none";
+});
 
 function startGame() {
   display.playerChoice.innerHTML = "Player: ";
@@ -98,11 +107,38 @@ function startGame() {
   computerScore = 0;
   display.playerScore.innerHTML = `Player Score: ${playerScore}`;
   display.computerScore.innerHTML = `Computer Score: ${computerScore}`;
+  checkRound()
 }
 
 document.getElementById('lblGreetings')
     ? document.getElementById('lblGreetings').innerHTML = `<b>${greet}</b> and welcome to ${gameTitle}!`
     : console.error('Element with id "lblGreetings" not found');
-  
-
-
+ 
+    const gameOverScreen = document.getElementById("game_over_screen");
+    const playAgainButton = document.getElementById("play_again_button");
+    
+    const showGameOverScreen = () => {
+      gameOverScreen.style.display = "block";
+    };
+    
+    const hideGameOverScreen = () => {
+      gameOverScreen.style.display = "none";
+    };
+    
+    playAgainButton.addEventListener("click", () => {
+      hideGameOverScreen();
+      startGame();
+    });
+    
+    const checkRound = () => {
+      if (gameOver) {
+        showGameOverScreen();
+        return;
+      }
+    
+      round++;
+      if (round > maxRounds) {
+        gameOver = true;
+        checkRound();
+      }
+    };
