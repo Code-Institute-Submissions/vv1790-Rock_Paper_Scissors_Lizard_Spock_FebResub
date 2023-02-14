@@ -76,11 +76,15 @@ main {
 }
 
 #start_screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40vh;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    text-align: center;
   }
 
 
