@@ -10,13 +10,14 @@ display = {
   getWinner: document.getElementById('get_winner')
 };
 
-//
+// An array of choices for the computer
 const choices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
 let gameOver = false;
 let round = 1;
 const maxRounds = 5;
 
+// Player's buttons
 const buttons = {
   rock: document.querySelector('.rock'),
   paper: document.querySelector('.paper'),
@@ -30,12 +31,14 @@ let computerChoice;
 let playerScore = 0;
 let computerScore = 0;
 
+// A function generates computer's choice each round
 function computerPlay() {
   computerChoice = choices[Math.floor(Math.random() * choices.length)];
   computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
   display.computerChoice.innerHTML = `Computer: ${computerChoice}`;
 }
 
+// A function for a player to interract with the game
 for (const [key, button] of Object.entries(buttons)) {
   button.addEventListener('click', () => {
     playerChoice = key.charAt(0).toUpperCase() + key.slice(1);
@@ -45,6 +48,7 @@ for (const [key, button] of Object.entries(buttons)) {
   });
 }
 
+// Arrays of winning and losing combinations
 const wins = [
   'ScissorsPaper',
   'ScissorsLizard',
@@ -71,6 +75,7 @@ const loses = [
   'RockSpock'
 ];
 
+// A function that determines a round's outcome
 const getResult = () => {
   const combinedChoices = `${playerChoice}${computerChoice}`;
   if (wins.includes(combinedChoices)) {
@@ -88,6 +93,7 @@ const getResult = () => {
   getWinner()
 };
 
+// Determines winner of a game after five rounds
 const getWinner = () => {
   const winningScore = 3;
   if (playerScore === winningScore) {
@@ -116,14 +122,14 @@ if (hrs >= 0 && hrs < 12) {
     greet = 'Invalid time';
 }
 
-var gameTitle = 'Rock, Paper, Scissors, Lizard, Spock';
-
+// Button starts the game
 const startButton = document.getElementById("start_screen");
 display.startButton.addEventListener('click', () => {
   display.startButton.style.display = 'none';
   document.getElementById("start_screen").style.display = "none";
 });
 
+// Function starts the game
 function startGame() {
   display.playerChoice.innerHTML = "Player: ";
   display.computerChoice.innerHTML = "Computer: ";
@@ -134,10 +140,13 @@ function startGame() {
   checkRound();
 }
 
+// A welcome message with a time of the day
+var gameTitle = 'Rock, Paper, Scissors, Lizard, Spock';
 document.getElementById("lblGreetings")
   ? (document.getElementById("lblGreetings").innerHTML = `<b>${greet}</b> and welcome to ${gameTitle}!`)
   : console.error("Element with id 'lblGreetings' not found");
 
+// Display game-over screen and play again button
   const gameOverScreen = document.getElementById("game_over_screen");
   const playAgainButton = document.getElementById("play_again_button");
   
@@ -149,12 +158,15 @@ document.getElementById("lblGreetings")
   const hideGameOverScreen = () => {
     gameOverScreen.style.display = "none";
   };
-  
+
+// Play again button, restarts the game
   playAgainButton.addEventListener("click", () => {
     hideGameOverScreen();
     startGame();
   });
-  
+
+
+// Function checks the number of rounds
   const checkRound = () => {
     if (gameOver) {
       showGameOverScreen();
@@ -167,7 +179,8 @@ document.getElementById("lblGreetings")
       checkRound();
     }
   };
-  
+ 
+// Function resets the game 
   function resetGameState() {
     playerScore = 0;
     computerScore = 0;
