@@ -6,7 +6,7 @@ display = {
   computerScore: document.getElementById('computer_score'),
   gameTitle: document.getElementById('title'),
   startButton: document.getElementById('start_button'),
-  gameOverBtn: document.getElementById('game_over')
+  getWinner: document.getElementById('get_winner')
 };
 
 const choices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
@@ -74,6 +74,21 @@ const getResult = () => {
   } else {
     display.result.innerHTML = "Result: It's a Tie!";
   }
+  checkRound()
+  getWinner()
+};
+
+const getWinner = () => {
+  const winningScore = 3;
+  if (playerScore === winningScore) {
+    display.getWinner.innerHTML = 'You are the winner!';
+    gameOver = true;
+  } else if (computerScore === winningScore) {
+    display.getWinner.innerHTML = 'The computer is the winner!';
+    gameOver = true;
+  } else if (playerScore === computerScore) {
+    display.getWinner.innerHTML = 'The game is a Tie!';
+  }
 };
 
 var myDate = new Date();
@@ -103,42 +118,51 @@ function startGame() {
   display.playerChoice.innerHTML = "Player: ";
   display.computerChoice.innerHTML = "Computer: ";
   display.result.innerHTML = "Result: ";
-  playerScore = 0;
-  computerScore = 0;
+  resetGameState();
   display.playerScore.innerHTML = `Player Score: ${playerScore}`;
   display.computerScore.innerHTML = `Computer Score: ${computerScore}`;
-  checkRound()
+  checkRound();
 }
 
-document.getElementById('lblGreetings')
-    ? document.getElementById('lblGreetings').innerHTML = `<b>${greet}</b> and welcome to ${gameTitle}!`
-    : console.error('Element with id "lblGreetings" not found');
- 
-    const gameOverScreen = document.getElementById("game_over_screen");
-    const playAgainButton = document.getElementById("play_again_button");
-    
-    const showGameOverScreen = () => {
-      gameOverScreen.style.display = "block";
-    };
-    
-    const hideGameOverScreen = () => {
-      gameOverScreen.style.display = "none";
-    };
-    
-    playAgainButton.addEventListener("click", () => {
-      hideGameOverScreen();
-      startGame();
-    });
-    
-    const checkRound = () => {
-      if (gameOver) {
-        showGameOverScreen();
-        return;
-      }
-    
-      round++;
-      if (round > maxRounds) {
-        gameOver = true;
-        checkRound();
-      }
-    };
+document.getElementById("lblGreetings")
+  ? (document.getElementById("lblGreetings").innerHTML = `<b>${greet}</b> and welcome to ${gameTitle}!`)
+  : console.error("Element with id 'lblGreetings' not found");
+
+  const gameOverScreen = document.getElementById("game_over_screen");
+  const playAgainButton = document.getElementById("play_again_button");
+  
+  const showGameOverScreen = () => {
+    gameOverScreen.style.display = "block";
+    getWinner()
+  };
+  
+  const hideGameOverScreen = () => {
+    gameOverScreen.style.display = "none";
+  };
+  
+  playAgainButton.addEventListener("click", () => {
+    hideGameOverScreen();
+    startGame();
+  });
+  
+  const checkRound = () => {
+    if (gameOver) {
+      showGameOverScreen();
+      return;
+    }
+  
+    round++;
+    if (round > maxRounds) {
+      gameOver = true;
+      checkRound();
+    }
+  };
+  
+  function resetGameState() {
+    playerScore = 0;
+    computerScore = 0;
+    round = 0;
+    gameOver = false;
+  }
+
+
