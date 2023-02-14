@@ -29,56 +29,62 @@ let playerScore = 0;
 let computerScore = 0;
 
 function computerPlay() {
-  // Keep track of the player's choices
-  const playerChoices = [];
-
-  // Analyze the player's choices and choose the counter option
-  const analyzeChoices = () => {
-    const options = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
-    const optionCounts = options.reduce((counts, option) => {
-      counts[option] = playerChoices.filter(choice => choice === option).length;
-      return counts;
-    }, {});
-  
-    const mostFrequentOption = Object.keys(optionCounts).reduce((a, b) => optionCounts[a] > optionCounts[b] ? a : b);
-    let counterOption;
-  
-    switch (mostFrequentOption) {
-      case 'rock':
-        counterOption = optionCounts.paper > optionCounts.spock ? 'paper' : 'spock';
-        break;
-      case 'paper':
-        counterOption = optionCounts.scissors > optionCounts.lizard ? 'scissors' : 'lizard';
-        break;
-      case 'scissors':
-        counterOption = optionCounts.rock > optionCounts.spock ? 'rock' : 'spock';
-        break;
-      case 'lizard':
-        counterOption = optionCounts.scissors > optionCounts.rock ? 'scissors' : 'rock';
-        break;
-      case 'spock':
-        counterOption = optionCounts.paper > optionCounts.lizard ? 'paper' : 'lizard';
-        break;
-      default:
-        counterOption = options[Math.floor(Math.random() * options.length)];
-        break;
-    }
-  
-    computerChoice = counterOption.charAt(0).toUpperCase() + counterOption.slice(1);
-    display.computerChoice.innerHTML = `Computer: ${computerChoice}`;
-  };
-  
-  // Store the player's choice and analyze the choices
-  for (const [key, button] of Object.entries(buttons)) {
-    button.addEventListener('click', () => {
-      playerChoices.push(key);
-      playerChoice = key.charAt(0).toUpperCase() + key.slice(1);
-      display.playerChoice.innerHTML = `Player: ${playerChoice}`;
-      analyzeChoices();
-      //getResult();
-    });
-  }
+  computerChoice = choices[Math.floor(Math.random() * choices.length)];
+  computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+  display.computerChoice.innerHTML = `Computer: ${computerChoice}`;
 }
+
+// function computerPlay() {
+//   // Keep track of the player's choices
+//   const playerChoices = [];
+
+//   // Analyze the player's choices and choose the counter option
+//   const analyzeChoices = () => {
+//     const options = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+//     const optionCounts = options.reduce((counts, option) => {
+//       counts[option] = playerChoices.filter(choice => choice === option).length;
+//       return counts;
+//     }, {});
+  
+//     const mostFrequentOption = Object.keys(optionCounts).reduce((a, b) => optionCounts[a] > optionCounts[b] ? a : b);
+//     let counterOption;
+  
+//     switch (mostFrequentOption) {
+//       case 'rock':
+//         counterOption = optionCounts.paper > optionCounts.spock ? 'paper' : 'spock';
+//         break;
+//       case 'paper':
+//         counterOption = optionCounts.scissors > optionCounts.lizard ? 'scissors' : 'lizard';
+//         break;
+//       case 'scissors':
+//         counterOption = optionCounts.rock > optionCounts.spock ? 'rock' : 'spock';
+//         break;
+//       case 'lizard':
+//         counterOption = optionCounts.scissors > optionCounts.rock ? 'scissors' : 'rock';
+//         break;
+//       case 'spock':
+//         counterOption = optionCounts.paper > optionCounts.lizard ? 'paper' : 'lizard';
+//         break;
+//       default:
+//         counterOption = options[Math.floor(Math.random() * options.length)];
+//         break;
+//     }
+  
+//     computerChoice = counterOption.charAt(0).toUpperCase() + counterOption.slice(1);
+//     display.computerChoice.innerHTML = `Computer: ${computerChoice}`;
+//   };
+  
+//   // Store the player's choice and analyze the choices
+//   for (const [key, button] of Object.entries(buttons)) {
+//     button.addEventListener('click', () => {
+//       playerChoices.push(key);
+//       playerChoice = key.charAt(0).toUpperCase() + key.slice(1);
+//       display.playerChoice.innerHTML = `Player: ${playerChoice}`;
+//       analyzeChoices();
+//       //getResult();
+//     });
+//   }
+// }
 
 computerPlay()
 
