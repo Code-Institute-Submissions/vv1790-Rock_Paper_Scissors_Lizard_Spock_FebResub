@@ -64,9 +64,9 @@ const wins = [
 
 const loses = [
   'PaperScissors',
-  'PaperSpock',
+  'SpockPaper',
   'ScissorsRock',
-  'ScissorsLizard',
+  'LizardScissors',
   'RockPaper',
   'LizardRock',
   'SpockLizard',
@@ -152,7 +152,7 @@ document.getElementById("lblGreetings")
   
   const showGameOverScreen = () => {
     gameOverScreen.style.display = "block";
-    getWinner()
+    
   };
   
   const hideGameOverScreen = () => {
@@ -179,7 +179,9 @@ document.getElementById("lblGreetings")
       checkRound();
     }
   };
- 
+
+  getWinner()
+
 // Function resets the game 
   function resetGameState() {
     playerScore = 0;
