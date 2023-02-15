@@ -4,18 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="small game project">
+    <meta name="keywords" content="rock, paper, scissors, lizard, spock, game, game project">
     <script src="assets/script.js" defer></script>
     <script src="https://kit.fontawesome.com/1d81df9ef3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/style.css">
     <title>Rock-Paper-Scissors-Lizard-Spock</title>
 </head>
-<body class="wrapper" >
+
+<!-- Website's body -->
+
+<body class="wrapper">
     <main id="main_body" class="game_screen">
+
+        <!-- Greeting screen contents -->
+
         <div id="start_screen">
             <label id="lblGreetings"></label>
             <button id="start_button">Start Game</button>
         </div>
+
+        <!-- Game's title -->
+
         <h1 id="titile">Rock-Paper-Scissors-Lizard-Spock</h1>
+
+        <!-- Sections to display player/computer choices and scores -->
+
         <section id="play_section">
             <h3 id="player_choice">Player: </h3>
             <h3 id="computer_choice">Computer: </h3>
@@ -24,16 +38,36 @@
             <h3 id="player_score">Player score: </h3>
             <h3 id="computer_score">Computer score: </h3>
         </section>
+
+        <!-- Turn's outcome -->
+
         <h3 id="show_result">Result: </h3>
+
+        <!-- Game's buttons with FontAwesome icons -->
+
         <button class="rock"><i class="fa-solid fa-hand-back-fist"> <br> Rock </i></button>
         <button class="paper"><i class="fa-solid fa-hand"> <br> Paper </i></button>
         <button class="scissors"><i class="fa-solid fa-hand-scissors"> <br> Scissors </i></button>
         <button class="lizard"><i class="fa-solid fa-hand-lizard"> <br> Lizard </i></button>
         <button class="spock"><i class="fa-solid fa-hand-spock"> <br> Spock </i></button>
+
+        <!-- Contents of end game screen with play again button -->
+
         <div id="game_over_screen">
             <button id="play_again_button">Play Again!</button>
             <h3 id="get_winner"></h3>
         </div>
     </main>
+
+    <!-- Site's owner credit -->
+
+    <section>
+        <footer>
+            <p>
+            <a class="owner" href="https://www.linkedin.com/in/valentin-myakishev-31b280217/" target="_blank"
+                aria-label="Visitn my linked in page (opens in a new tab)">© Valentin Myakishev</a>
+            </p>
+        </footer>
+    </section>
 </body>
 </html>
