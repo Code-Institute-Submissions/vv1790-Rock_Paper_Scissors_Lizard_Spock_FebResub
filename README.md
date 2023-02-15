@@ -2,6 +2,8 @@
 
 This project is a game of rock, paper, scissors, lizard, spock. This is as much of a fun game project, as it is practice for me. 
 
+<a href="https://mvv1790.github.io/Rock_Paper_Scissors_Lizard_Spock/" target="_blank" rel="noopener noreferrer">Rock-Paper-Scissors-Lizard-Spock</a>
+
 <h2>Features</h2>
 
 This game uses a simple design. Which makes it easy to navigate. 
@@ -70,15 +72,15 @@ to go the addEventListener route.
 
 <h2>Technologies Used</h2>
 
-<a href="https://html.spec.whatwg.org/" target="_blank" rel=”noopener”>HTML5</a> - provides the general structure of the sie.
+<a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">HTML5</a> - provides the general structure of the sie.
 
-<a href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank" rel=”noopener”>CSS</a> - provides the styling.
+<a href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank" rel="noopener noreferrer">CSS</a> - provides the styling.
 
-<a href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/" target="_blank" rel=”noopener”>JavaScript</a>
+<a href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/" target="_blank" rel="noopener noreferrer">JavaScript</a>
 
-<a href="https://www.gitpod.io/#get-started" target="_blank" rel=”noopener”>GitPod</a> - used to deploy the site.
+<a href="https://www.gitpod.io/#get-started" target="_blank" rel="noopener noreferrer">GitPod</a> - used to deploy the site.
 
-<a href="https://github.com" target="_blank" rel=”noopener”>GitHub</a> - used to host/edit the site.
+<a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a> - used to host/edit the site.
 
 
 The site was deployed to GitHub pages taking the following steps:
@@ -91,18 +93,18 @@ The site was deployed to GitHub pages taking the following steps:
 
 <h2>Link to the site</h2> 
   
-<a href="https://mvv1790.github.io/Rock_Paper_Scissors_Lizard_Spock/" target="_blank" rel=”noopener”>Rock-Paper-Scissors-Lizard-Spock</a>
+<a href="https://mvv1790.github.io/Rock_Paper_Scissors_Lizard_Spock/" target="_blank" rel="noopener noreferrer">Rock-Paper-Scissors-Lizard-Spock</a>
 
 The site is deployed to GitHub pages. 
 
 <h2>Credits</h2>
 
-<a href="https://www.youtube.com/watch?v=RwFeg0cEZvQ" target="_blank" rel=”noopener”>Code with Ania Kubow</a> -  provided some good examples of 
+<a href="https://www.youtube.com/watch?v=RwFeg0cEZvQ" target="_blank" rel="noopener noreferrer">Code with Ania Kubow</a> -  provided some good 
 
-different ways to code the game
+examples of different ways to code the game
 
-<a href="https://codeinstitute.net/global/" target="_blank" rel=”noopener”>Code Institute</a>
+<a href="https://codeinstitute.net/global/" target="_blank" rel="noopener noreferrer">Code Institute</a>
 
-Navigation menu icons were taken from <a href="https://fontawesome.com" target="_blank" rel=”noopener”>Font Awesome</a> 
+Navigation menu icons were taken from <a href="https://fontawesome.com" target="_blank" rel="noopener noreferrer">Font Awesome</a> 
 
 
