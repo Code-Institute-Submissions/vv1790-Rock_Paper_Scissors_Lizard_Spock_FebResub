@@ -101,7 +101,7 @@ The site is deployed to GitHub pages.
 
 <a href="https://www.youtube.com/watch?v=RwFeg0cEZvQ" target="_blank" rel="noopener noreferrer">Code with Ania Kubow</a> -  provided some good examples of different ways to code the game
 
-<a href="https://codeinstitute.net/global/" target="_blank" rel="noopener noreferrer">Code Institute</a>
+<a href="https://codeinstitute.net/global/" target="_blank" rel="noopener noreferrer">Code Institute</a> - sutdy materials.
 
 Navigation menu icons were taken from <a href="https://fontawesome.com" target="_blank" rel="noopener noreferrer">Font Awesome</a> 
 
