@@ -76,7 +76,7 @@ to go the addEventListener route.
 
 <a href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank" rel="noopener noreferrer">CSS</a> - provides the styling.
 
-<a href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/" target="_blank" rel="noopener noreferrer">JavaScript</a>
+<a href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/" target="_blank" rel="noopener noreferrer">JavaScript</a> - provides functionality
 
 <a href="https://www.gitpod.io/#get-started" target="_blank" rel="noopener noreferrer">GitPod</a> - used to deploy the site.
 
@@ -99,9 +99,7 @@ The site is deployed to GitHub pages.
 
 <h2>Credits</h2>
 
-<a href="https://www.youtube.com/watch?v=RwFeg0cEZvQ" target="_blank" rel="noopener noreferrer">Code with Ania Kubow</a> -  provided some good 
-
-examples of different ways to code the game
+<a href="https://www.youtube.com/watch?v=RwFeg0cEZvQ" target="_blank" rel="noopener noreferrer">Code with Ania Kubow</a> -  provided some good examples of different ways to code the game
 
 <a href="https://codeinstitute.net/global/" target="_blank" rel="noopener noreferrer">Code Institute</a>
 
